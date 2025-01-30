@@ -1,0 +1,15 @@
+header {
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+
+  a {
+    margin: 5px;
+    font-size: 20px;
+    text-shadow: 1px 5px 5px gray;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
