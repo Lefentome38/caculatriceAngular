@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="calculator">
+    <app-screen-calculator/>
+    <div class="keypadCalulatour">
+      @for (item of items; track items) {
+        <app-key-calculator></app-key-calculator>
+      }
+    </div>
+  </div>
+</div>
