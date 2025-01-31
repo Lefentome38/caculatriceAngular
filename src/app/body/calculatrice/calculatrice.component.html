@@ -1,26 +1,31 @@
-<div class="container">
-  <div class="calculator">
+<div class="calculator">
+  
+  <div class="containerLeft">
     <app-screen-calculator/>
-    <div class="keypadCalulatourTop">
+    <div class="keypadCalulatorTop">
       <app-key-calculator></app-key-calculator>
       <app-key-calculator></app-key-calculator>
       <app-key-calculator></app-key-calculator>
     </div>
-    <div class="keypadCalulatour">
+    <div class="keypadCalulator">
       @for (item of items; track items) {
         <app-key-calculator></app-key-calculator>
       }
     </div>
-    <div class="keypadCalulatourBottom">
+    <div class="keypadCalulatorBottom">
       <app-key-calculator></app-key-calculator>
       <app-key-calculator></app-key-calculator>
       <app-key-calculator></app-key-calculator>
     </div>
-    <div class="keypadCalulatourRight">
+  </div>
+
+  <div class="containerRight">
+    <div class="keypadCalulatorRight">
       <app-key-calculator></app-key-calculator>
       <app-key-calculator></app-key-calculator>
       <app-key-calculator></app-key-calculator>
       <app-key-calculator></app-key-calculator>
     </div>
   </div>
+
 </div>

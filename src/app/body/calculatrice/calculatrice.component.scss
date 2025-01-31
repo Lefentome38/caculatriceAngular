@@ -2,37 +2,36 @@ $num-pad-columns: 3;
 $num-pad-gap: 4px; 
 $num-pad-size: 50px; 
 
-.container{
+.calculator {
   display: flex;
   justify-content: center;
-  align-items:start;
-  padding: 5%;
+  align-items: center;
 
-  .calculator {
+  padding: 4%;
+  width: 100%;
+
+  background-color: #3f3f3f;
+  border-radius: 20px;
+
+  .containerLeft {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    padding: 1%;
-    width: 15rem;
-    
-    background-color: #3f3f3f;
-    border-radius: 20px;
-    
-    .keypadCalulatour {
+
+    .keypadCalulatorTop, .keypadCalulator, .keypadCalulatorBottom {
       display: grid;
       gap: $num-pad-gap;
       grid-template-columns: repeat($num-pad-columns, $num-pad-size);
-      width: calc($num-pad-columns * $num-pad-size + ($num-pad-columns - 1) * $num-pad-gap);
-      padding: 4px;
+      padding: 2%;
     }
+  }
 
-    .keypadCalulatourRight {
+  .containerRight {
+    
+    .keypadCalulatorRight {
       display: grid;
       gap: $num-pad-gap;
       padding: 4px;
-
-      justify-content: flex-end;
-      }
+    }
   }
 }
