@@ -3,28 +3,28 @@
   <div class="containerLeft">
     <app-screen-calculator/>
     <div class="keypadCalulatorTop">
-      <app-key-calculator></app-key-calculator>
-      <app-key-calculator></app-key-calculator>
-      <app-key-calculator></app-key-calculator>
+      <button style="font-size: 15px;">On/Off</button>
+      <button>C</button>
+      <button>%</button>
     </div>
     <div class="keypadCalulator">
       @for (item of items; track items) {
-        <app-key-calculator></app-key-calculator>
+        <button>{{item+1}}</button>
       }
     </div>
     <div class="keypadCalulatorBottom">
-      <app-key-calculator></app-key-calculator>
-      <app-key-calculator></app-key-calculator>
-      <app-key-calculator></app-key-calculator>
+      <button>0</button>
+      <button>0</button>
+      <button>0</button>
     </div>
   </div>
 
   <div class="containerRight">
     <div class="keypadCalulatorRight">
-      <app-key-calculator></app-key-calculator>
-      <app-key-calculator></app-key-calculator>
-      <app-key-calculator></app-key-calculator>
-      <app-key-calculator></app-key-calculator>
+      <button>0</button>
+      <button>0</button>
+      <button>0</button>
+      <button>0</button>
     </div>
   </div>
 
