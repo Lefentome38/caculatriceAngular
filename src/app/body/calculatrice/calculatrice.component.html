@@ -1,31 +1,33 @@
+<p>tabNumberLeft: {{tabNumber.join('')}}</p>
+
 <div class="container">
 
   <app-screen-calculator/>
-  
+
   <div class="calculator">
     <div class="containerLeft">
       <div class="keypadTop">
-        <button>On/Off</button>
-        <button>C</button>
-        <button>%</button>
+        <button style="font-size: 1.5em;" >On/Off</button>
+        <button (click)="onDelete()">C</button>
+        <button (click)="addSymbol('%')">%</button>
       </div>
       <div class="keypadMiddle">
-        @for (item of items; track items) {
-          <button>{{item+1}}</button>
+        @for (item of keypadTab; track item) {
+          <button (click)="onNumberClick(item+1)" id="item" >{{item+1}}</button>
         }
       </div>
       <div class="keypadBottom">
-        <button>0</button>
-        <button>.</button>
-        <button>=</button>
+        <button (click)="onNumberClick(0)">0</button>
+        <button>,</button>
+        <button (click)="resultaCalcule()">=</button>
       </div>
     </div>
   
     <div class="containerRight">
       <div class="keypadRight">
-        <button>/</button>
-        <button>X</button>
-        <button>-</button>
+        <button (click)="addSymbol('/')">/</button>
+        <button (click)="addSymbol('X')">X</button>
+        <button (click)="addSymbol('-')">-</button>
         <button style="height: 21vh; border-radius: 5%;" >+</button>
       </div>
     </div>
