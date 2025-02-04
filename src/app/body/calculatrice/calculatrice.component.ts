@@ -1,38 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { ScreenCalculatorComponent } from '../screen-calculator/screen-calculator.component';
-import { evaluate, log } from 'mathjs';
+import { evaluate} from 'mathjs';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-calculatrice',
-  imports: [ScreenCalculatorComponent],
+  imports: [ScreenCalculatorComponent, NgStyle],
   templateUrl: './calculatrice.component.html',
   styleUrl: './calculatrice.component.scss'
 })
 
 export class CalculatriceComponent implements OnInit {
 
-  tilte!: string;
   keypadTab = Array.from({ length: 9 }, (_,i) => i);
 
-  valueSymbol!: string;
+  isLedOnOff = false;
 
+  valueSymbol!: string;
   tabNumber: string [] = [];
 
   ngOnInit(): void {
-    this.tilte = "Calcultratice"
+    this.tabNumber = [];
+  }
+
+  toggleLed() {
+    this.isLedOnOff = !this.isLedOnOff;
     this.tabNumber = [];
   }
 
   onNumberClick(value: number): void {
-    this.tabNumber = [...this.tabNumber, value.toString()];
+    if (this.isLedOnOff) {
+      this.tabNumber = [...this.tabNumber, value.toString()];
+    }
   }
 
   addSymbol(symbol: string): void {
-    if (!this.tabNumber[this.tabNumber.length-1].match(/[X+\-/%]/)) {
-      this.tabNumber = [...this.tabNumber, symbol];
-    } else {
-      this.tabNumber.pop();
-      this.tabNumber = [...this.tabNumber, symbol];
+    if (this.isLedOnOff) {
+      if (!this.tabNumber[this.tabNumber.length-1].match(/[X+\-/%]/)) {
+        this.tabNumber = [...this.tabNumber, symbol];
+      } else {
+        this.tabNumber.pop();
+        this.tabNumber = [...this.tabNumber, symbol];
+      }
     }
   }
 

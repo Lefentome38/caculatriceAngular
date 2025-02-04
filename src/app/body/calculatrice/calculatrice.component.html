@@ -1,11 +1,15 @@
 <div class="container">
 
-  <app-screen-calculator [tab]="tabNumber"/>
+  
+  <div class="headerCalculator">
+    <div class="ledOnOff" [ngStyle]="{'background-color': isLedOnOff ? 'green' : 'red'}"></div>
+    <app-screen-calculator [tab]="tabNumber"/>
+  </div>
 
   <div class="calculator">
     <div class="containerLeft">
       <div class="keypadTop">
-        <button style="font-size: 1.5em;" >On/Off</button> <!-- ç faire -->
+        <button style="font-size: 1.5em;" (click)="toggleLed()">On/Off</button>
         <button (click)="onDelete()">C</button>
         <button (click)="backtrachingBord()">&#x2190;</button>
       </div>
