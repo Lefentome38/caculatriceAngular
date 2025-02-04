@@ -36,13 +36,17 @@ export class CalculatriceComponent implements OnInit {
   }
 
   resultaCalcule() {
-    // let input = this.tabNumber.join('')
-    let input = "475X12"
-    let result = input.match('/(\d+)([X+\-/%])(\d+)/');
-    if (result) {
-      console.log("tata", result[1]);
+    let input = this.tabNumber.join('')
+    let regex = /\d+|[X+\-/%]/g; 
+    let match = input.matchAll(regex);
+    if (match) {
+      let result = [];
+      for (let i of match) {
+        result.push(i[0]); 
+      }
+      console.log(result);
     } else {
-      console.log("toto", result);  
+      console.log("pas de résulta");  
     }
   }
 
