@@ -7,7 +7,7 @@
       <div class="keypadTop">
         <button style="font-size: 1.5em;" >On/Off</button> <!-- ç faire -->
         <button (click)="onDelete()">C</button>
-        <button>%</button> <!-- ç faire -->
+        <button (click)="backtrachingBord()">&#x2190;</button>
       </div>
       <div class="keypadMiddle">
         @for (item of keypadTab; track item) {
@@ -23,9 +23,9 @@
   
     <div class="containerRight">
       <div class="keypadRight">
+        <button>%</button> <!-- ç faire -->
         <button (click)="addSymbol('/')">/</button>
         <button (click)="addSymbol('X')">X</button>
-        <button (click)="addSymbol('-')">-</button>
         <button (click)="addSymbol('-')">-</button>
         <button (click)="addSymbol('+')">+</button>
       </div>

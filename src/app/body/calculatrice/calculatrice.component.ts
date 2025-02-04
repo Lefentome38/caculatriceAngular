@@ -67,6 +67,10 @@ export class CalculatriceComponent implements OnInit {
     }
   }
 
+  backtrachingBord(): void {
+    this.tabNumber.pop();
+  }
+
   onDelete() {
     this.tabNumber = [];
   }
