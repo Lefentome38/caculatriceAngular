@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-screen-calculator',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './screen-calculator.component.html',
   styleUrl: './screen-calculator.component.scss'
 })
-export class ScreenCalculatorComponent {
+export class ScreenCalculatorComponent{
 
+  @Input() tab: string[] = [];
+  
 }
