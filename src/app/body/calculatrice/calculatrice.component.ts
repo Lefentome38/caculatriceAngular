@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScreenCalculatorComponent } from '../screen-calculator/screen-calculator.component';
-import { evaluate} from 'mathjs';
 import { NgStyle } from '@angular/common';
+import { CalculExpression } from '../../functions/math';
 
 @Component({
   selector: 'app-calculatrice',
@@ -47,32 +47,25 @@ export class CalculatriceComponent implements OnInit {
 
   resultaCalcule(): void {
     let input = this.tabNumber.join('')
-    let regex = /\d+|[X+\-\/]/g; 
-    let match = input.matchAll(regex);
+    let match = input.matchAll(/\d+|[+\-*/]/g);
 
     try {
       if (match) {
-        let result = [];
+        let newTab: string[] = [];
         for (let i of match) {
-          result.push(i[0]); 
+          newTab.push(i[0]); 
         }
-        let cal = new CalculatriceComponent();
-        this.tabNumber = [cal.CalculExpression(result).toString()];
+        let calcul = CalculExpression(this.tabNumber);
+        if (!isNaN(calcul)) {
+          this.tabNumber = [calcul.toString()];
+        } else {
+          console.log("Erreur : CalculExpression a retourné une valeur non valide.");
+        }
       } else {
-        console.log("erreur de calcul dans la valeur rentré de resultaCalcule()");  
+        console.log("Erreur de calcul : expression invalide.");  
       }
     } catch (error) {
-      console.log("crash dans le trycatch de resultaCalcule() :", Error);
-    }
-  }
-
-  CalculExpression(value: string[]): number {
-    let expression = value.map(token => token === "X" ? "*" : token).join("");
-    try {
-      return evaluate(expression);
-    } catch (error) {
-      console.log("erreur de calcul dans l'expression :", Error);
-      return NaN;
+      console.log("crash dans le trycatch de resultaCalcule() :", error);
     }
   }
 
