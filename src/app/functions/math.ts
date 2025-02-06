@@ -1,7 +1,8 @@
 import { evaluate } from "mathjs";
 
 export function CalculExpression(value: string[]): number {
-  let expression = value.map(token => token === "X" ? "*" : token).join("");
+  let expression = value.map(token => token === "X" ? "*" : token).join("").replace(/,/g, ".").replace(/(\d+)[,\.](\d+)/g, "$1.$2")
+  
   try {
     let result = evaluate(expression);
 

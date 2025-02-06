@@ -15,12 +15,12 @@
       </div>
       <div class="keypadMiddle">
         @for (item of keypadTab; track item) {
-          <button (click)="onNumberClick(item+1)" id="item" >{{item+1}}</button>
+          <button (click)="onNumberClick(item+1)" id="item" >{{item+1}}</button> <!-- mettre dans l'ordre: 1 en bas a gauche et le 9 en haut à droite-->
         }
       </div>
       <div class="keypadBottom">
         <button (click)="onNumberClick(0)">0</button>
-        <button>,</button> <!-- ç faire -->
+        <button (click)="addSymbol('.')">.</button>
         <button (click)="resultaCalcule()">=</button>
       </div>
     </div>
