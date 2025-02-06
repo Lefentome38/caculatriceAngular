@@ -50,6 +50,7 @@ export class CalculatriceComponent implements OnInit {
     try {
 
       let calcul = CalculExpression(this.tabNumber);
+      
       if (!isNaN(calcul)) {
         this.tabNumber = [calcul.toString()];
       } else {

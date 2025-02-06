@@ -1,8 +1,19 @@
 import { evaluate } from "mathjs";
 
 export function CalculExpression(value: string[]): number {
-  let expression = value.map(token => token === "X" ? "*" : token).join("").replace(/,/g, ".").replace(/(\d+)[,\.](\d+)/g, "$1.$2")
+  let expression = value.map(token => token === "X" ? "*" : token).join("").replace(/,/g, ".");
   
+  let poucentageOnOff = expression.match(/%/g);
+
+  if (poucentageOnOff) {
+    let result = expression.match(/\d+|%/g);
+    
+    if (result) {
+      let calculatedResult = ((parseFloat(result[0]) * parseFloat(result[2])) / 100);
+      return calculatedResult;
+    }
+  }
+
   try {
     let result = evaluate(expression);
 
